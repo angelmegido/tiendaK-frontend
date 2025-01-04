@@ -1,0 +1,58 @@
+@import '/src/variables'; // Asegúrate de que la ruta sea correcta
+
+.product-list-container {
+  margin: 0 5%; // Aplica un margen del 5% a la derecha e izquierda
+}
+
+.row {
+  .col-md-4 {
+    .product-card {
+      .image-container {
+        position: relative;
+        overflow: hidden;
+
+        img {
+          transition: transform 0.3s ease;
+        }
+
+        .add-to-cart-btn {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease;
+          background-color: $color-primary; // Color del botón
+          border-color: $color-quaternary; // Cambia el color para el borde
+
+          &:hover {
+            background-color: darken($color-primary, 10%); // Oscurecer el botón al pasar el ratón
+          }
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.1); // Efecto de zoom en la imagen
+          }
+
+          .add-to-cart-btn {
+            opacity: 1;
+            visibility: visible; // Muestra el botón
+          }
+        }
+      }
+
+      .card-body {
+        .card-title {
+          color: $color-quaternary; // Color del título del producto
+        }
+
+        .card-text {
+          color: $color-quinary; // Color de la descripción del producto
+        }
+      }
+    }
+  }
+}
+

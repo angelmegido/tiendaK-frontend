@@ -1,0 +1,86 @@
+@import '/src/variables';
+
+.container {
+  .row {
+    .col-md-6 {
+      position: relative;
+      overflow: hidden;
+
+      h2 {
+        color: $color-primary; // Color para el nombre del producto
+      }
+
+      p {
+        color: $color-secondary; // Color para la descripción del producto
+      }
+
+      h4 {
+        color: $color-tertiary; // Color para el precio del producto
+      }
+
+      img.img-fluid {
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      .btn-primary {
+        background-color: $color-quaternary; // Color de fondo para el botón
+        border-color: $color-quinary; // Color del borde del botón
+
+        &:hover {
+          background-color: darken($color-quaternary, 10%);
+          border-color: darken($color-quinary, 10%);
+        }
+      }
+    }
+
+    .size-selector {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+
+      div {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $color-secondary;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &.selected {
+          background-color: $color-secondary;
+          color: white;
+        }
+      }
+    }
+
+    .btn-back {
+      // Estilos para el botón Atrás
+      background-color: $color-primary;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      position: absolute;
+      right: 50%;
+      bottom: 15px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($color-primary, 10%);
+      }
+    }
+  }
+}
