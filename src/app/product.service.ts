@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { Product } from './product.model';
 
@@ -8,7 +9,7 @@ import { Product } from './product.model';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://127.0.0.1:8000/api/products';
+  private apiUrl = `${environment.apiUrl}/products`;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
