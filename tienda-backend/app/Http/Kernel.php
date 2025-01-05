@@ -17,6 +17,7 @@ class Kernel extends HttpKernel
         // Agregamos CorsMiddleware al middleware global
         \App\Http\Middleware\CorsMiddleware::class,
         \App\Http\Middleware\TrustProxies::class,
+        \Illuminate\Http\Middleware\HandleCors::class,
         // Comentamos HandleCors para evitar conflictos
         // \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
