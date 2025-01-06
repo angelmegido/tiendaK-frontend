@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -12,7 +13,11 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   register() {
     this.authService
@@ -20,10 +25,31 @@ export class RegisterComponent {
       .subscribe(
         (response: { access_token: string }) => {
           this.authService.setToken(response.access_token);
-          this.router.navigate(['/']);
+
+          // Mostrar mensaje de éxito
+          this.snackBar.open(
+            'Registro completado correctamente. Por favor, inicia sesión.',
+            'Cerrar',
+            {
+              duration: 5000, // Tiempo en milisegundos que el mensaje estará visible
+              panelClass: ['snack-success'], // Clase CSS para personalizar el estilo
+            }
+          );
+
+          this.router.navigate(['/login']);
         },
         (error: any) => {
           console.error('Error al registrar:', error);
+
+          // Mostrar mensaje de error
+          this.snackBar.open(
+            'Error al registrar. Por favor, inténtalo de nuevo.',
+            'Cerrar',
+            {
+              duration: 5000,
+              panelClass: ['snack-error'], // Clase CSS para personalizar el estilo
+            }
+          );
         }
       );
   }

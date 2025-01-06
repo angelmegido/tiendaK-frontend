@@ -7,6 +7,9 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+  asset(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   isCollapsed = true;
   user: any = null;
 
